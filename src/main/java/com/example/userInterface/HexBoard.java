@@ -321,7 +321,7 @@ public class HexBoard extends Application {
         double kdy=k*dy;
         Line line = new Line(x1+kdx,y1+kdy,x2+kdx,y2+kdy);
         line.setStrokeType(StrokeType.OUTSIDE);
-        line.setStrokeWidth(1.25);
+        line.setStrokeWidth(2);
         line.setStroke(color);
         return line;
     }
