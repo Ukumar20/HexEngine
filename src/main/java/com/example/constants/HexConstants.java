@@ -34,9 +34,9 @@ public class HexConstants {
 
     public static final String alertTitle = "Game Ends";
 
-    public static final String playSoundFilePath = "src/main/resources/sound/play.wav";
+    public static final String playSoundFilePath = "/sound/play.wav";
 
-    public static final String winSoundFilePath = "src/main/resources/sound/notify.wav";
+    public static final String winSoundFilePath = "/sound/notify.wav";
 
     public static final String newGameImage = "/images/newGame.png";
 

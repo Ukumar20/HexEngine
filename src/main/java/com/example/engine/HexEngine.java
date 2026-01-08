@@ -215,11 +215,11 @@ public class HexEngine {
     }
 
     private static void playMoveSound(){
-        SoundEffects.play(HexConstants.playSoundFilePath);
+        SoundEffects.playSound();
     }
 
     private static void playWinSound(){
-        SoundEffects.play(HexConstants.winSoundFilePath);
+        SoundEffects.winSound();
     }
 
     private static void highlightAndDisableClick(int i, int j){
