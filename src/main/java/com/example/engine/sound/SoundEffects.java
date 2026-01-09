@@ -4,34 +4,38 @@ import com.example.constants.HexConstants;
 import javafx.scene.media.AudioClip;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
 * This is used to play different game sounds
 * */
-public class SoundEffects {
+public final class SoundEffects {
 
-    private static AudioClip playSound;
+    private static final Map<String, AudioClip> audioClipMap = new HashMap<>();
 
-    private static AudioClip winSound;
+    private SoundEffects() {}
 
-    public static void playSound() {
-        play(playSound, HexConstants.playSoundFilePath);
+    public static void moveSound() {
+        play(HexConstants.moveSoundFilePath);
     }
 
     public static void winSound() {
-        play(winSound, HexConstants.winSoundFilePath);
+        play(HexConstants.winSoundFilePath);
     }
 
-    public static void play(AudioClip clip, String filePath) {
-        if(clip == null) {
-            clip = getAudioClip(filePath);
-        }
-        if(clip != null) {
+    private static void play(String filePath) {
+        AudioClip clip = getAudioClip(filePath);
+        if(clip != null){
             clip.play();
         }
     }
 
     private static AudioClip getAudioClip(String filePath) {
+        return audioClipMap.computeIfAbsent(filePath, SoundEffects::generateAudioClip);
+    }
+
+    private static AudioClip generateAudioClip(String filePath) {
         URL url = SoundEffects.class.getResource(filePath);
         return url != null ? new AudioClip(url.toExternalForm()) : null;
     }

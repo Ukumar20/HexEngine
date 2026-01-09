@@ -215,7 +215,7 @@ public class HexEngine {
     }
 
     private static void playMoveSound(){
-        SoundEffects.playSound();
+        SoundEffects.moveSound();
     }
 
     private static void playWinSound(){
